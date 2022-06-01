@@ -1,27 +1,15 @@
 {
-  "name": "blog-core",
+  "name": "anti-tt",
   "version": "1.0.0",
-  "description": "",
-  "main": "compiled/app.js",
-  "scripts": {
-    "start": "tsc && node compiled/app.js",
-    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "AnchorI && MAX",
-  "license": "ISC",
+  "description": "Telegram Bot for remove message with tiktok links",
+  "main": "bot.ts",
+  "repository": "git@github.com:AnchorI/anti-tt.git",
+  "author": "AnchorI",
+  "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.7.0",
-    "nodemon": "^2.0.15",
-    "ts-node": "^10.4.0",
-    "tslint": "^6.1.3",
-    "typescript": "^4.5.5"
+    "typescript": "^4.7.2"
   },
   "dependencies": {
-    "@types/express": "github:types/express",
-    "eslist": "^1.0.0-beta.1",
-    "express": "^4.17.2",
     "grammy": "^1.8.3"
   }
 }
