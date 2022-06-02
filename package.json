@@ -4,7 +4,7 @@
   "description": "Telegram Bot for remove message with tiktok links",
   "main": "src/bot.ts",
   "scripts": {
-    "start": "tsc && node compiled/bot.js",
+    "start": "tsc && node compiled/src/bot.js",
     "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/bot.ts",
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@types/node": "^17.0.38",
+    "dotenv": "^16.0.1",
     "grammy": "^1.8.3",
     "nodemon": "^2.0.16",
     "ts-node": "^10.8.0"
