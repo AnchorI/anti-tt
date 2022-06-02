@@ -2,7 +2,7 @@
 import { Bot } from "grammy";
 import { TOKEN } from "../config/config";
 
-const bot = new Bot(`"${TOKEN}"`); // <-- put your authentication token between the ""
+const bot = new Bot(`${TOKEN}`); // <-- put your authentication token between the ""
 
 bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
 
