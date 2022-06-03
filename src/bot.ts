@@ -15,5 +15,6 @@ bot.on(["message:entities:url", "edited_message"], (ctx) => {
     }
 })
 
+bot.catch(err => console.error(err))
 
 bot.start();
