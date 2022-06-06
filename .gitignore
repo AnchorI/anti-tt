@@ -2,7 +2,6 @@
 *.log
 # ignore .env
 .env
-config/
 
 # macOS Files
 .DS_Store
