@@ -32,6 +32,15 @@ bot.on(["message:entities:url", "edited_message"], (ctx) => {
     console.log('text', text)
 })
 
+bot.on("message", (ctx) => {
+    const text = ctx.msg.text
+
+    if (text?.includes("пидор" || "Пидор" || "пидорасина" || "Пидорасина")) {
+        ctx.reply("А ты шаришь")
+        ctx.replyWithSticker("CAACAgIAAxkBAAEFCf1iqJ4pHdmJFyjSSfYSxJ5Bj9OZNAACtQEAAvnkbAABxHAP4NXF1FckBA")
+    }
+})
+
 bot.catch(err => console.error(err))
 
 bot.start();
