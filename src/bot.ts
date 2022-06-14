@@ -20,6 +20,11 @@ bot.hears("ping", async (ctx) => {
     });
 });
 
+bot.on(["message"], (ctx) => {
+    const text = ctx.msg
+    console.log('text', text)
+})
+
 bot.on(["message:entities:url", "edited_message"], (ctx) => {
     const text = ctx.msg.text
 
