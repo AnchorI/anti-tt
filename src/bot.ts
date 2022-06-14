@@ -1,5 +1,5 @@
 import { Bot, Context } from "grammy";import config from "./config";
-    
+
 type MyContext = Context
 
 const bot = new Bot<MyContext>(`${config.token}`); // <-- put your authentication token between the ""
