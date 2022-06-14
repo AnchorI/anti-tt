@@ -7,8 +7,8 @@ const bot = new Bot<MyContext>(`${config.token}`); // <-- put your authenticatio
 bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
 
 bot.command("MitchPidor", (ctx) => {
-    ctx.reply("Сам пидор")
-    ctx.replyWithSticker("https://www.gstatic.com/webp/gallery/1.webp")
+    ctx.reply("А ты шаришь")
+    ctx.replyWithSticker("CAACAgIAAxkBAAEFCf1iqJ4pHdmJFyjSSfYSxJ5Bj9OZNAACtQEAAvnkbAABxHAP4NXF1FckBA")
 } )
 
 
@@ -20,10 +20,6 @@ bot.hears("ping", async (ctx) => {
     });
 });
 
-bot.on(["message"], (ctx) => {
-    const text = ctx.msg
-    console.log('text', text)
-})
 
 bot.on(["message:entities:url", "edited_message"], (ctx) => {
     const text = ctx.msg.text
@@ -32,6 +28,8 @@ bot.on(["message:entities:url", "edited_message"], (ctx) => {
         ctx.deleteMessage()
         ctx.reply("Фу, боже")
     }
+
+    console.log('text', text)
 })
 
 bot.catch(err => console.error(err))
