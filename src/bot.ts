@@ -34,13 +34,14 @@ bot.on(["message:entities:url", "edited_message"], (ctx) => {
 
 bot.on(["message", "edited_message"], (ctx) => {
     const text = ctx.msg.text
+    const rexExp = /"пидор", "пидорасина", "пидарасина"/i
 
     if(text?.includes("бот")){
         ctx.reply(" Ты меня не трогай, все вопросы к @AnchorI")
         ctx.replyWithSticker("CAACAgIAAxkBAAEFCgFiqKDf-2QNSpMI-MCjU3CD2RWegwACCgADTDbWBDafo3IkQrt9JAQ")
     }
 
-    if (text?.includes("пидор" || "Пидор" || "пидорасина" || "Пидорасина")) {
+    if (text && rexExp.test(text)) {
         ctx.reply("А ты шаришь")
         ctx.replyWithSticker("CAACAgIAAxkBAAEFCf1iqJ4pHdmJFyjSSfYSxJ5Bj9OZNAACtQEAAvnkbAABxHAP4NXF1FckBA")
     }
