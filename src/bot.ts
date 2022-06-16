@@ -34,16 +34,23 @@ bot.on(["message:entities:url", "edited_message"], (ctx) => {
 
 bot.on(["message", "edited_message"], (ctx) => {
     const text = ctx.msg.text
-    const rexExp = /"пидор", "пидорасина", "пидарасина"/i
+    const rexExp = /пидор/i
+    const tiktok = /(tiktok|тикток)/g
+    const botExp = /бот/i
 
-    if(text?.includes("бот")){
+    if(text && botExp.test(text) && !text?.includes("stop")){
         ctx.reply(" Ты меня не трогай, все вопросы к @AnchorI")
         ctx.replyWithSticker("CAACAgIAAxkBAAEFCgFiqKDf-2QNSpMI-MCjU3CD2RWegwACCgADTDbWBDafo3IkQrt9JAQ")
     }
 
-    if (text && rexExp.test(text)) {
+    if (text && rexExp.test(text) && !text?.includes("stop")) {
         ctx.reply("А ты шаришь")
         ctx.replyWithSticker("CAACAgIAAxkBAAEFCf1iqJ4pHdmJFyjSSfYSxJ5Bj9OZNAACtQEAAvnkbAABxHAP4NXF1FckBA")
+    }
+
+    if (text && tiktok.test(text) && !text?.includes("stop")) {
+        ctx.deleteMessage()
+        ctx.reply("Никаких тиктоков нахуй")
     }
 })
 
