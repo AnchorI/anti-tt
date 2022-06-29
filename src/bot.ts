@@ -17,12 +17,17 @@ let di4kaStatus = Status.di4kaActive
 
 bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
 
-bot.command("xyu", (ctx) => { ctx.replyWithSticker("CAACAgQAAxkBAAEFKB5ivFzImLFWDbjvULqyW_5H5IHXDgACRQIAAnDsAgHFeYAQhKGg8ikE") })
+bot.command("xyu", (ctx) => {
+    ctx.deleteMessage()
+    ctx.replyWithSticker("CAACAgQAAxkBAAEFKB5ivFzImLFWDbjvULqyW_5H5IHXDgACRQIAAnDsAgHFeYAQhKGg8ikE")
+})
 
 bot.command("premium", (ctx) => {
     const premium = ctx.msg.from?.is_premium
-    if (premium == true) ctx.replyWithVideo("CgACAgIAAx0CWnnl-wACGiFivHJSI1QKswn6f5jZexRWMp8fbgACyhYAAqXxgEkUcnIYXfh0JykE")
-    if (premium == false) {
+    ctx.deleteMessage()
+    if (premium == true) {
+        ctx.replyWithVideo("CgACAgIAAx0CWnnl-wACGiFivHJSI1QKswn6f5jZexRWMp8fbgACyhYAAqXxgEkUcnIYXfh0JykE")
+    } else {
         ctx.reply("Отсоси потом проси")
         ctx.replyWithSticker("CAACAgQAAxkBAAEFKB5ivFzImLFWDbjvULqyW_5H5IHXDgACRQIAAnDsAgHFeYAQhKGg8ikE")
     }
@@ -35,12 +40,14 @@ bot.command("off", (ctx) => {
         case config.piramidaId:
             if (pmdStatus == Status.pmdActive){
                 pmdStatus = Status.pmdDisabled
+                ctx.deleteMessage()
                 ctx.reply("Bot Disabled")
             } else ctx.reply("Bot already disabled")
             break
         case config.opgId:
             if (opgStatus == Status.opgActive){
                 opgStatus = Status.opgDisabled
+                ctx.deleteMessage()
                 ctx.reply("Bot Disabled")
             } else ctx.reply("Bot already disabled")
             break
